@@ -48,7 +48,7 @@ for api_key in api_keys:
 
     print('==============================')
     print(f'ID：{ID}')
-    print(f'用户名：{name}')
+    print(f'用户名：{name[0]}***{name[-1]}')
     print(f'签到前积分：{points_before}')
 
     checkin_response = checkin(api_key)
@@ -71,3 +71,4 @@ if len(api_keys) == 1:
 else:
     print("全部任务已完成")
     print(f"成功{succeed}个，失败{failed}个")
+    assert succeed

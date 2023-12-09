@@ -33,6 +33,7 @@ def checkin(api_key,entry_point='https://api.v2.rainyun.com/user/reward/tasks'):
 api_keys = [] #placeholder
 api_key = '' #placeholder
 succeed = 0
+duplicate = 0
 failed = 0
 
 #获取机密
@@ -71,15 +72,16 @@ for i,api_key in enumerate(api_keys,start=1):
         print(f'返回值：{checkin_response}')
         print('鉴定为签到成功')
         succeed += 1
+    elif checkin_response['code'] == 30011:
+        print(f'返回值：{checkin_response}')
+        print('鉴定为签到重复')
+        duplicate += 1
     else:
         print(f'返回值：{checkin_response}')
         print('鉴定为签到失败')
         failed += 1
     print('==============================')
 
-if len(api_keys) == 1:    
-    assert points_after > points_before
-else:
-    print("全部任务已完成")
-    print(f"成功{succeed}个，失败{failed}个")
-    assert succeed
+print("全部任务已完成")
+print(f"成功{succeed}个，重复签到{duplicate}个，失败{failed}个")
+assert succeed

@@ -2,7 +2,6 @@
 
 import requests
 import json
-#import telepot
 
 """请求用户信息"""
 def get_user_info(api_key,entry_point="https://api.v2.rainyun.com/user/"):
@@ -84,4 +83,4 @@ for i,api_key in enumerate(api_keys,start=1):
 
 print("全部任务已完成")
 print(f"成功{succeed}个，重复签到{duplicate}个，失败{failed}个")
-assert succeed
+assert succeed or duplicate

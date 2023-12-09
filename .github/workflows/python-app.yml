@@ -2,7 +2,7 @@ name: checkin-workflow
 
 on:
   schedule: 
-  - cron: '40 13,21 * * *'
+  - cron: '10 16 * * *'
   workflow_dispatch: 
 
 permissions:

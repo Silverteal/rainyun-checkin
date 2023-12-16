@@ -30,4 +30,4 @@ jobs:
         echo "$APIKEY" > arguments.txt
     - name: Run main script
       run: |
-        python main.py
+        python main.py > $GITHUB_STEP_SUMMARY

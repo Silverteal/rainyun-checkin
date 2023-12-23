@@ -6,7 +6,7 @@ import json
 """请求IPIP并原样返回"""
 def get_base_ip(*,log_func = print):
     log_func('获取网络状态...')
-    return requests.request("GET", "https://myip.ipip.net/")
+    return requests.request("GET", "https://myip.ipip.net/").text.strip()
 
 """请求用户信息"""
 def get_user_info(api_key,*,entry_point="https://api.v2.rainyun.com/user/",log_func = print):
@@ -59,18 +59,12 @@ for i,api_key in enumerate(api_keys,start=1):
     print(f'任务第 {i} 项，共 {len(api_keys)} 项')
     print(f'APIKEY的长度是 {len(api_key)}')
     info_before = get_user_info(api_key)
-
-    if isinstance(info_before['data'],str):
-        print('无法获取用户信息')
-        print('==============================')
-        failed += 1
-        continue
     
     points_before = info_before['data']['Points']
     ID = info_before['data']['ID']
     name = info_before['data']['Name']
 
-    print(f'ID: {ID}')
+    #print(f'ID: {ID}')
     print(f'用户名: {name[0]}***{name[-1]}')
     print(f'签到前积分: {points_before}')
 

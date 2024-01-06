@@ -12,3 +12,4 @@ automatically checkin rainyun through CI/CD
 1.当RAINYUN_APIKEY为单个密钥时，工作流会检查签到成功与否，并在积分没有增加时使工作流失败  
 2.当RAINYUN_APIKEY是通过半角逗号分割的多个密钥时，工作流会依次签到，并只在所有密钥都没能使积分增加时使工作流失败  
 3.Github会自动冻结一些不活跃仓库（一般是60天）的Action
+最后一次检查：2024/1/6

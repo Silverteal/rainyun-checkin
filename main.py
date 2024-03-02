@@ -64,7 +64,7 @@ for i,api_key in enumerate(api_keys,start=1):
     ID = info_before['data']['ID']
     name = info_before['data']['Name']
 
-    print(f'ID: {ID}')
+    print(f'ID长度: {len(str(ID))}')
     print(f'用户名: {name[0]}***{name[-1]}')
     print(f'签到前积分: {points_before}')
 
